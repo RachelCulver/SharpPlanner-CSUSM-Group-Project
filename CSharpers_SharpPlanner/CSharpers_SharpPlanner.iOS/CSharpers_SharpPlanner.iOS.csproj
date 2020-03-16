@@ -151,10 +151,4 @@
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\CSharpers_SharpPlanner\CSharpers_SharpPlanner.csproj">
-      <Project>{03D975E8-2085-460C-9F9A-9AE37083E949}</Project>
-      <Name>CSharpers_SharpPlanner</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
