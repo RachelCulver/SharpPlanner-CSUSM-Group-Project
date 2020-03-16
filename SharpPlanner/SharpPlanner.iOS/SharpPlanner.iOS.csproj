@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CBE96EFA-5B8B-4E87-B664-1BEF3446B3E3}</ProjectGuid>
+    <ProjectGuid>{18186F78-74C6-4AAE-9B85-8C42D41F7D0E}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CSharpers_SharpPlanner.iOS</RootNamespace>
+    <RootNamespace>SharpPlanner.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>CSharpers_SharpPlanner.iOS</AssemblyName>
+    <AssemblyName>SharpPlanner.iOS</AssemblyName>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -151,4 +151,10 @@
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\SharpPlanner\SharpPlanner.csproj">
+      <Project>{50E03070-A998-4CD7-A1B0-52145915F462}</Project>
+      <Name>SharpPlanner</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

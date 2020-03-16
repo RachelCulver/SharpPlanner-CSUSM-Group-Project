@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace CSharpers_SharpPlanner.iOS
+namespace SharpPlanner.iOS
 {
     public class Application
     {

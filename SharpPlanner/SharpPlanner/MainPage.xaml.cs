@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CSharpers_SharpPlanner
+namespace SharpPlanner
 {
     public partial class MainPage : ContentPage
     {
