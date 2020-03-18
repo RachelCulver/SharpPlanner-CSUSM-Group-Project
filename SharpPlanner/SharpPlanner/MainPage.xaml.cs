@@ -13,5 +13,10 @@ namespace SharpPlanner
         {
             InitializeComponent();
         }
+
+        public async void CreateEvent(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CreatePlanPage());
+        }
     }
 }
