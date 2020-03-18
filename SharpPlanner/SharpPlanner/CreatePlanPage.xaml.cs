@@ -38,7 +38,7 @@ namespace SharpPlanner
             DateTime dateAndTime = new DateTime(CalendarDate.Date.Year, CalendarDate.Date.Month, CalendarDate.Date.Day,
                 CalendarTime.Time.Hours, CalendarTime.Time.Minutes, 0);
             
-            Plan plan = new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (Priority) PriorityPicker.SelectedIndex);
+            PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (Priority) PriorityPicker.SelectedIndex));
         }
 
         public async void Cancel(object sender, EventArgs e)
