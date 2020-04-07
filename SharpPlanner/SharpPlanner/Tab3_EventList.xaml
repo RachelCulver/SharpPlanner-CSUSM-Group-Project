@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SharpPlanner.Tab3_EventList"
+             Title="Event List">
+
+
+
+    <ListView x:Name="EventList"
+                  IsPullToRefreshEnabled="True"
+                  RowHeight="120"
+                  Refreshing="EventList_Refreshing"
+                  
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!--THIS IS NEEDED FOR CONTEXT MENU SO WE CAN DELETE AN ITEM ON THE LIST...-->
+                        <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="MenuItem_Clicked" CommandParameter=""/>
+                        </ViewCell.ContextActions>
+
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="80"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="4*"/>
+                                        
+                                    </Grid.ColumnDefinitions>
+
+                                <!--PRIORITY -->
+                                <Label Grid.RowSpan="2" Grid.Column="0" Text="{Binding Priority}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>                              
+                                <!--DATE AND TIME -->
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Date}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Time}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+
+                                <!--EVENT TITLE AND DESCRIPTION -->
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding EventTitle}"  FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding EventDescription}"  FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+
+                                </Grid>                             
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+
+
+
+
+
+
+</ContentPage>
