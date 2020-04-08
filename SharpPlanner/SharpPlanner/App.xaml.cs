@@ -7,6 +7,8 @@ namespace SharpPlanner
 {
     public partial class App : Application
     {
+        static PlanDB database;
+
         public App()
         {
             InitializeComponent();
@@ -14,6 +16,19 @@ namespace SharpPlanner
             MainPage = new NavigationPage(new MainPage());
             //MainPage = new ManagePlanPage(new Plan("Test", "bababab", new DateTime(2020,3,16), Priority.LOW));
             //MainPage = new MainPage();
+        }
+
+        // creates new database
+        public static PlanDB Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new PlanDB();
+                }
+                return Database;
+            }
         }
 
         protected override void OnStart()
