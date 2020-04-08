@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace SharpPlanner
@@ -7,11 +8,11 @@ namespace SharpPlanner
     public sealed class PlanBase
     {
         private static PlanBase instance = null;
-        private List<Plan> plans;
+        public ObservableCollection<Plan> plans;
         
         private PlanBase()
         {
-            plans = new List<Plan>();
+            plans = new ObservableCollection<Plan>();
         }
 
         public static PlanBase GetInstance()

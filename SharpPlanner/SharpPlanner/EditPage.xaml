@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SharpPlanner.EditPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="EntryTitle" Text="{Binding title}" Placeholder="Event Name"/>
+            <Entry x:Name="EntryDesc" Text="{Binding description}" Placeholder="Event Description"/>
+            <DatePicker x:Name="CalendarDate"/>
+            <TimePicker x:Name="CalendarTime"/>
+            <Picker x:Name="PriorityPicker"/>
+
+            <Button VerticalOptions="End" TextColor="White" BackgroundColor="Green" Text="Save" Clicked="Save"/>
+            <Button VerticalOptions="End" TextColor="White" BackgroundColor="Red" Text="Cancel" Clicked="Cancel"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
