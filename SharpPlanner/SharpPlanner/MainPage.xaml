@@ -2,7 +2,10 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SharpPlanner"
-             x:Class="SharpPlanner.MainPage">
+            xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+            x:Class="SharpPlanner.MainPage">
+            <!--  -->
+            
     <ContentPage>
         <!-- Icon=" .png" BackgroundImage=".png" -->
         <ContentPage.Content>
@@ -17,12 +20,13 @@
     <!-- I'm not sure if we will keep this here, I just put it here for testing -->
     <local:Tab3_EventList/>
 
+ 
     <ContentPage>
         <!-- Icon=" .png" BackgroundImage=".png" -->
         <ContentPage.Content>
             <StackLayout>
                 <Label TextColor="Black" Font ="15" Text="Open Calendar" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <!-- Calendar Page -->
+                <syncfusion:SfCalendar x:Name="calendar" />
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
