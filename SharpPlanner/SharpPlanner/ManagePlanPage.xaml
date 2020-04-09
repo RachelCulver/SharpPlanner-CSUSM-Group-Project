@@ -1,15 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SharpPlanner.ManagePlanPage">
+             x:Class="SharpPlanner.ManagePlanPage"
+             Appearing="OnAppear">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
-                <Button BackgroundColor="Red" TextColor="White" HorizontalOptions="End" Text="Edit"/>
-                <Label Text="{Binding PlanTitle}" FontSize="24" TextColor="Black"
+                <Button BackgroundColor="Red" TextColor="White" HorizontalOptions="End" Text="Edit" Clicked="Edit"/>
+            </StackLayout>
+            <Label x:Name="title" Text="" FontSize="24" TextColor="Black"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
+            <Label x:Name="desc" Text="" FontSize="24" TextColor="Black"
+                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="time" Text="" FontSize="24" TextColor="Black"
+                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="priority" Text="" FontSize="24" TextColor="Black"
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

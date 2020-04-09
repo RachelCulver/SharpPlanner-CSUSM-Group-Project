@@ -7,12 +7,15 @@
         <!-- Icon=" .png" BackgroundImage=".png" -->
         <ContentPage.Content>
             <StackLayout>
-                <Label TextColor="Black" Font ="15" Text="Creat Event" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label TextColor="Black" Font ="15" Text="Create Event" HorizontalOptions="Center" VerticalOptions="Center"/>
                 <!-- Place new controls here -->
                 <Button Text="Create Event" Clicked="CreateEvent"/>
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
+
+    <!-- I'm not sure if we will keep this here, I just put it here for testing -->
+    <local:Tab3_EventList/>
 
     <ContentPage>
         <!-- Icon=" .png" BackgroundImage=".png" -->
