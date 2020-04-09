@@ -25,7 +25,7 @@ namespace SharpPlanner
             PriorityPicker.SelectedIndex = 2;
         }
 
-        public void CreateEvent(object sender, EventArgs e)
+        async void CreateEvent(object sender, EventArgs e)
         {
             if (EntryTitle.Text == "")
             {
@@ -37,8 +37,10 @@ namespace SharpPlanner
 
             DateTime dateAndTime = new DateTime(CalendarDate.Date.Year, CalendarDate.Date.Month, CalendarDate.Date.Day,
                 CalendarTime.Time.Hours, CalendarTime.Time.Minutes, 0);
+
+            //PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (Priority) PriorityPicker.SelectedIndex));
+            await App.Database.SaveItemAsync((Plan)BindingContext);
             
-            PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (Priority) PriorityPicker.SelectedIndex));
         }
 
         public async void Cancel(object sender, EventArgs e)
