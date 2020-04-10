@@ -43,7 +43,7 @@ namespace SharpPlanner
 
         public Task<List<Plan>> GetItemsNotDoneAsync()
         {
-            return Database.QueryAsync<Plan>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
+            return Database.QueryAsync<Plan>("SELECT * FROM [Plan] WHERE [Done] = 0");
         }
 
         public Task<Plan> GetItemAsync(int id)

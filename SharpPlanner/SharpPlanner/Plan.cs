@@ -17,6 +17,7 @@ namespace SharpPlanner
         public string description { get; set; }
         public DateTime time { get; set; }
         public string priority { get; set; }
+        public bool complete { get; set; }
 
 
 

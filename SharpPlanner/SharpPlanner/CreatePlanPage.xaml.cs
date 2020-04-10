@@ -40,7 +40,7 @@ namespace SharpPlanner
 
             //PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (Priority) PriorityPicker.SelectedIndex));
             await App.Database.SaveItemAsync((Plan)BindingContext);
-            
+            await Navigation.PopAsync();
         }
 
         public async void Cancel(object sender, EventArgs e)
