@@ -28,26 +28,27 @@
                             <StackLayout>
                                 <Grid >
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="80"/>
-                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
+                                        
                                         
                                     </Grid.ColumnDefinitions>
 
                                 <!-- I have changed the values so they fit the Plan class -->
                                 <!--PRIORITY -->
-                                <Label Grid.RowSpan="2" Grid.Column="0" Text="{Binding priority}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>                              
+                                <Label Grid.Row="2" Grid.Column="0" Text="{Binding priority}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>                              
                                 <!--DATE AND TIME -->
                                 <!-- <Label Grid.Row="0" Grid.Column="1" Text="{Binding Date}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label> -->
-                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding time}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                                <Label Grid.Row="3" Grid.Column="0" Text="{Binding time}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
 
                                 <!--EVENT TITLE AND DESCRIPTION -->
-                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding title}"  FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding description}"  FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding title}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding description}"  FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
 
                                 </Grid>                             
                             </StackLayout>
