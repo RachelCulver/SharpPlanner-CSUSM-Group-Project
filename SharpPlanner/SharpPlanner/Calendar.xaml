@@ -4,12 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              x:Class="SharpPlanner.Calendar">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <syncfusion:SfCalendar x:Name="calendar" ViewMode="MonthView" ShowInlineEvents="True" 
+                           InlineViewMode="Inline" MaximumEventIndicatorCount="1" 
+                           DataSource="{Binding CalendarInlineEvents}">
+      <!--  <calendar:SfCalendar.BindingContext> <local:CalendarViewModel/> </calendar:SfCalendar.BindingContext> -->
+    </syncfusion:SfCalendar>
 </ContentPage>

@@ -27,6 +27,7 @@
             <StackLayout>
                 <Label TextColor="Black" Font ="15" Text="Open Calendar" HorizontalOptions="Center" VerticalOptions="Center"/>
                 <syncfusion:SfCalendar x:Name="calendar" />
+                <Button Text="Open Calendar" Clicked="Open_Calendar"/>
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
