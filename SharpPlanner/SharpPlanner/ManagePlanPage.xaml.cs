@@ -19,6 +19,7 @@ namespace SharpPlanner
         {
             plan = _plan;
             InitializeComponent();
+            BindingContext = plan;
         }
 
         public async void Edit(object sender, EventArgs e)
@@ -26,13 +27,19 @@ namespace SharpPlanner
             await Navigation.PushAsync(new EditPage(plan));
         }
 
-        //I used this because binding wasn't updating
         public void OnAppear(object sender, EventArgs e)
         {
-            title.Text = plan.title;
-            desc.Text = plan.description;
-            time.Text = plan.time.ToString();
-            priority.Text = plan.priority;
+            if(plan.time.CompareTo(DateTime.Now) > 0)
+            {
+                time.TextColor = Color.Green;
+            }
+            else
+            {
+                time.TextColor = Color.Red;
+            }
+            List<String> priorities = Globals.priorities.ToList<String>();
+            priority.TextColor = Globals.priorityColors[priorities.IndexOf(plan.priority)];
         }
+        
     }
 }
