@@ -7,16 +7,21 @@ namespace SharpPlanner
 {
     public partial class Tab3_EventList : ContentPage
     {
-        private PlanBase Plans;
+        //private PlanBase Plans = PlanBase.GetInstance();
+        PlanBase Plans = PlanBase.GetInstance();
 
         public Tab3_EventList()
         {
+            
+            Plans.plans = PlanBase.GetInstance().plans;
             InitializeComponent();
             BindingContext = this;
-            
+
 
             //Attach item source
-            EventList.ItemsSource = PlanBase.GetInstance().plans;
+
+            EventList.ItemsSource = Plans.plans;
+            
         }
 
         public async void ManagePlan(object sender, EventArgs e)
@@ -40,7 +45,7 @@ namespace SharpPlanner
 
             //Need help on what to do here, Not sure what PlanBase Object to use??
             //
-            //WHAT_OBJECT?.Remove((Plan)mi.CommandParameter);
+            Plans.Remove((Plan)mi.CommandParameter);
         }
 
 
