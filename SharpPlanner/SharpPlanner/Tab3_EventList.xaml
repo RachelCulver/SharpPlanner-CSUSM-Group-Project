@@ -21,7 +21,7 @@
                     <ViewCell>
                         <!--THIS IS NEEDED FOR CONTEXT MENU SO WE CAN DELETE AN ITEM ON THE LIST...-->
                         <ViewCell.ContextActions>
-                                <MenuItem Text="Delete" Clicked="MenuItem_Clicked" CommandParameter=""/>
+                                <MenuItem Text="Delete" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"/>
                         </ViewCell.ContextActions>
 
                         <ViewCell.View>

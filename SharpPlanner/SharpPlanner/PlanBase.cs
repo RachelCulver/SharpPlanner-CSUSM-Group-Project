@@ -28,5 +28,11 @@ namespace SharpPlanner
         {
             plans.Add(p);
         }
+
+        //For removing a plan
+        public void Remove(Plan p)
+        {
+            plans.Remove(p);
+        }
     }
 }

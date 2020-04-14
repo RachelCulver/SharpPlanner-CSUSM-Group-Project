@@ -7,12 +7,15 @@ namespace SharpPlanner
 {
     public partial class Tab3_EventList : ContentPage
     {
+        private PlanBase Plans;
+
         public Tab3_EventList()
         {
             InitializeComponent();
             BindingContext = this;
+            
 
-            //TODO: NEEDS ITEM SOURCE below
+            //Attach item source
             EventList.ItemsSource = PlanBase.GetInstance().plans;
         }
 
@@ -27,25 +30,29 @@ namespace SharpPlanner
             BindingContext = this;
         }
 
-        //REFRESH LIST
-        void EventList_Refreshing(System.Object sender, System.EventArgs e)
+        
+        //DELETE PLAN using context menu
+        void MenuItem_Clicked(System.Object sender, System.EventArgs e)
         {
-            //TODO:We can make it update the list of events incase events are added or deleted
+            //TODO:For CONTEXT MENU.. This will need to delete the Event from the list
+            MenuItem mi = (MenuItem)sender;
 
 
-
-
-            //last thing to do in function is set refreshing to false...
-            EventList.IsRefreshing = false;
+            //Need help on what to do here, Not sure what PlanBase Object to use??
+            //
+            //WHAT_OBJECT?.Remove((Plan)mi.CommandParameter);
         }
 
 
 
-
-        //DELETE
-        void MenuItem_Clicked(System.Object sender, System.EventArgs e)
+        //Actually we may not need the below function.. maybe...
+        //REFRESH LIST
+        void EventList_Refreshing(System.Object sender, System.EventArgs e)
         {
-            //TODO:For CONTEXT MENU.. This will need to delete the Event from the list
+            
+
+            //last thing to do in function is set refreshing to false...
+            EventList.IsRefreshing = false;
         }
     }
 }
