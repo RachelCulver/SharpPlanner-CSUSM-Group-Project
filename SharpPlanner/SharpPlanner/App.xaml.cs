@@ -19,6 +19,7 @@ namespace SharpPlanner
         protected override void OnStart()
         {
             // Handle when your app starts
+            PlanBase.GetInstance().OnStart();
         }
 
         protected override void OnSleep()
