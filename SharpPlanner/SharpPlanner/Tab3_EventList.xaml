@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              Appearing="OnAppear"
              x:Class="SharpPlanner.Tab3_EventList"
-             Title="Event List">
+             IconImageSource="listicon.png"
+             >
 
 
 

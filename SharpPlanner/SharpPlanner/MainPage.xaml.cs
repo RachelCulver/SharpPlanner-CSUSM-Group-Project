@@ -12,11 +12,11 @@ namespace SharpPlanner
         public MainPage()
         {
             InitializeComponent();
+            Children.Add(new Tab3_EventList());
+            Children.Add(new Calendar());
+            Children.Add(new CreatePlanPage());
         }
 
-        public async void CreateEvent(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new CreatePlanPage());
-        }
+    
     }
 }
