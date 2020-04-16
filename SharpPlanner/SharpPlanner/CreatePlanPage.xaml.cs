@@ -39,7 +39,8 @@ namespace SharpPlanner
                 CalendarTime.Time.Hours, CalendarTime.Time.Minutes, 0);
             
             PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (string) PriorityPicker.SelectedItem));
-
+            EntryTitle.Text = "";
+            EntryDesc.Text = "";
             await Navigation.PopAsync();
         }
 

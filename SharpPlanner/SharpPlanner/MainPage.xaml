@@ -2,8 +2,8 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SharpPlanner"
-             x:Class="SharpPlanner.MainPage"
-            Title="Sharp Planner"
+             x:Class=" SharpPlanner.MainPage"
+            Title="                            Sharp Planner"
             
             >
 
