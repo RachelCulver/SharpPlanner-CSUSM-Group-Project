@@ -5,13 +5,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SharpPlanner.Calendar"
-             IconImageSource="calendaricon.png"
+             IconImageSource="calendaricon.png"       
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             xmlns:local="clr-namespace:SharpPlanner"
              >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <syncfusion:SfCalendar x:Name="calendar" ViewMode="MonthView" ShowInlineEvents="true" InlineViewMode="Inline" MaximumEventIndicatorCount="1" DataSource="{Binding CalendarInlineEvents}">
+                <syncfusion:SfCalendar.BindingContext>
+                    <local:CalendarEvents/>
+                </syncfusion:SfCalendar.BindingContext>
+            </syncfusion:SfCalendar>
+        </Grid>
     </ContentPage.Content>
+
 </ContentPage>
