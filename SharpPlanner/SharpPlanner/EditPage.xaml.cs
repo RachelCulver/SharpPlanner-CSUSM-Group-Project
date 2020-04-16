@@ -14,13 +14,16 @@ namespace SharpPlanner
 	public partial class EditPage : ContentPage
 	{
         public Plan plan;
-        private string firstTitle, firstDesc;
+        private string firstTitle, firstDesc, firstPriority;
+        private DateTime firstTime;
 
 		public EditPage (Plan _plan)
 		{
             plan = _plan;
             firstTitle = plan.title;
             firstDesc = plan.description;
+            firstTime = plan.time;
+            firstPriority = plan.priority;
 			InitializeComponent ();
             BindingContext = plan;
             CalendarDate.Date = plan.time.Date;
@@ -47,14 +50,25 @@ namespace SharpPlanner
             plan.time = dateAndTime;
             plan.priority = (string) PriorityPicker.SelectedItem;
 
+            firstTitle = plan.title;
+            firstDesc = plan.description;
+            firstTime = plan.time;
+            firstPriority = plan.priority;
+
             await Navigation.PopAsync();
         }
 
         public async void Cancel(object sender, EventArgs e)
         {
+            await Navigation.PopAsync();
+        }
+
+        public void OnDisappear(object sender, EventArgs e)
+        {
             plan.title = firstTitle;
             plan.description = firstDesc;
-            await Navigation.PopAsync();
+            plan.time = firstTime;
+            plan.priority = firstPriority;
         }
     }
 }

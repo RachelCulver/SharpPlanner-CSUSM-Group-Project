@@ -2,34 +2,10 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SharpPlanner"
-            xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
-            x:Class="SharpPlanner.MainPage">
-            <!--  -->
+             x:Class=" SharpPlanner.MainPage"
+            Title="                            Sharp Planner"
             
-    <ContentPage>
-        <!-- Icon=" .png" BackgroundImage=".png" -->
-        <ContentPage.Content>
-            <StackLayout>
-                <Label TextColor="Black" Font ="15" Text="Create Event" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <!-- Place new controls here -->
-                <Button Text="Create Event" Clicked="CreateEvent"/>
-            </StackLayout>
-        </ContentPage.Content>
-    </ContentPage>
+            >
 
-    <!-- I'm not sure if we will keep this here, I just put it here for testing -->
-    <local:Tab3_EventList/>
-
- 
-    <ContentPage>
-        <!-- Icon=" .png" BackgroundImage=".png" -->
-        <ContentPage.Content>
-            <StackLayout>
-                <Label TextColor="Black" Font ="15" Text="Open Calendar" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <syncfusion:SfCalendar x:Name="calendar" />
-                <Button Text="Open Calendar" Clicked="Open_Calendar"/>
-            </StackLayout>
-        </ContentPage.Content>
-    </ContentPage>
     
 </TabbedPage>

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SharpPlanner.CreatePlanPage"
-             Title="Create an event">
+             IconImageSource="addicon.png"
+             Appearing="OnAppear">
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name="EntryTitle" Text="" Placeholder="Event Name"/>
@@ -11,8 +12,8 @@
             <TimePicker x:Name="CalendarTime"/>
             <Picker x:Name="PriorityPicker"/>
             
-            <Button VerticalOptions="End" TextColor="White" BackgroundColor="Green" Text="Create Event" Clicked="CreateEvent"/>
-            <Button VerticalOptions="End" TextColor="White" BackgroundColor="Red" Text="Cancel" Clicked="Cancel"/>
+            <Button VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="White" BackgroundColor="Green" Text="Create Event" Clicked="CreateEvent"/>
+            <Button VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="White" BackgroundColor="Tomato" Text="Cancel" Clicked="Cancel"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
