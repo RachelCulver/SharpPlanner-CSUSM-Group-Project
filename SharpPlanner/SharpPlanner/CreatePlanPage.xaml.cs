@@ -13,11 +13,19 @@ namespace SharpPlanner
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CreatePlanPage : ContentPage
 	{
+        private TabbedPage tabbedPage;
 
-		public CreatePlanPage ()
+		public CreatePlanPage (TabbedPage tPage)
         {
+            tabbedPage = tPage;
             BindingContext = this;
             InitializeComponent ();
+        }
+
+        public void OnAppear(object sender, EventArgs e)
+        {
+            EntryTitle.Text = "";
+            EntryDesc.Text = "";
             CalendarDate.Date = DateTime.Today;
             CalendarDate.MinimumDate = DateTime.Today;
             CalendarTime.Time = DateTime.Now.TimeOfDay;
@@ -25,28 +33,28 @@ namespace SharpPlanner
             PriorityPicker.SelectedIndex = 2;
         }
 
-        public async void CreateEvent(object sender, EventArgs e)
+        public void CreateEvent(object sender, EventArgs e)
         {
             if (EntryTitle.Text == "")
             {
                 EntryTitle.Focus();
+                return;
             }else if(EntryDesc.Text == "")
             {
                 EntryDesc.Focus();
+                return;
             }
 
             DateTime dateAndTime = new DateTime(CalendarDate.Date.Year, CalendarDate.Date.Month, CalendarDate.Date.Day,
                 CalendarTime.Time.Hours, CalendarTime.Time.Minutes, 0);
             
             PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (string) PriorityPicker.SelectedItem));
-            EntryTitle.Text = "";
-            EntryDesc.Text = "";
-            await Navigation.PopAsync();
+            tabbedPage.CurrentPage = tabbedPage.Children[0];
         }
 
-        public async void Cancel(object sender, EventArgs e)
+        public void Cancel(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            tabbedPage.CurrentPage = tabbedPage.Children[0];
         }
 	}
 }

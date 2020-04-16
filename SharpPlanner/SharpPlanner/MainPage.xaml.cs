@@ -14,7 +14,7 @@ namespace SharpPlanner
             InitializeComponent();
             Children.Add(new Tab3_EventList());
             Children.Add(new Calendar());
-            Children.Add(new CreatePlanPage());
+            Children.Add(new CreatePlanPage(this));
         }
 
     
