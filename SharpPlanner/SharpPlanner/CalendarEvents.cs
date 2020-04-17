@@ -7,14 +7,15 @@ using Xamarin.Forms;
 
 namespace SharpPlanner
 {
-    class CalendarEvents
+    public class CalendarEvents
     {
+        private static CalendarEvents instance = null;
         public CalendarEventCollection CalendarInlineEvents { get; set; } = new CalendarEventCollection();
 
-        public CalendarEvents()
+        private CalendarEvents()
         {
             // Create events 
-            CalendarInlineEvent event1 = new CalendarInlineEvent()
+            /*CalendarInlineEvent event1 = new CalendarInlineEvent()
             {
                 StartTime = DateTime.Today.AddHours(9),
                 EndTime = DateTime.Today.AddHours(10),
@@ -32,7 +33,20 @@ namespace SharpPlanner
 
             // Add events into a CalendarInlineEvents collection
             CalendarInlineEvents.Add(event1);
-            CalendarInlineEvents.Add(event2);
+            CalendarInlineEvents.Add(event2);*/
+        }
+        public void Add(CalendarInlineEvent e)
+        {
+            CalendarInlineEvents.Add(e);
+        }
+
+        public static CalendarEvents GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new CalendarEvents();
+            }
+            return instance;
         }
     }
 }

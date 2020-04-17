@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.SfCalendar.XForms;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -27,7 +28,16 @@ namespace SharpPlanner
                 foreach(string plan in _plans)
                 {
                     string[] split = plan.Split(' ');
-                    plans.Add(new Plan(split[0], split[1], DateTime.Parse(split[2] + " " + split[3]), split[4]));
+                    Random random = new Random(DateTime.Now.Millisecond);
+                    CalendarInlineEvent ev = new CalendarInlineEvent()
+                    {
+                        StartTime = DateTime.Parse(split[2] + " " + split[3]),
+                        EndTime = DateTime.Parse(split[2] + " " + split[3]).AddSeconds(1),
+                        Subject = split[0],
+                        Color = Globals.calendarColors[(int)Math.Round(random.NextDouble() * Globals.calendarColors.Length)]
+                    };
+                    plans.Add(new Plan(split[0], split[1], DateTime.Parse(split[2] + " " + split[3]), split[4],ev));
+                    CalendarEvents.GetInstance().Add(ev);
                 }
             }
         }
@@ -63,6 +73,7 @@ namespace SharpPlanner
         //For removing a plan
         public void Remove(Plan p)
         {
+            p.Destroy();
             plans.Remove(p);
             Save();
         }

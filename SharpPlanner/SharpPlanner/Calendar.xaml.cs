@@ -12,9 +12,11 @@ namespace SharpPlanner
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Calendar : ContentPage
     {
+
         public Calendar()
         {
             InitializeComponent();
+            calendar.BindingContext = CalendarEvents.GetInstance();
         }
     }
 }

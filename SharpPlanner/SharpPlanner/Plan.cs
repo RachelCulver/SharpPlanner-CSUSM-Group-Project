@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.SfCalendar.XForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -62,13 +63,21 @@ namespace SharpPlanner
             }
         }
 
-        public Plan(string _title, string _description, DateTime _time, string _priority)
+        private CalendarInlineEvent hook;
+
+        public Plan(string _title, string _description, DateTime _time, string _priority, CalendarInlineEvent ev)
         {
             title = _title;
             description = _description;
             time = _time;
             priority = _priority;
+            hook = ev;
 
+        }
+
+        public void Destroy()
+        {
+            CalendarEvents.GetInstance().CalendarInlineEvents.Remove(hook);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

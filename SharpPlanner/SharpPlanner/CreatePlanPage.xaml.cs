@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.SfCalendar.XForms;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -48,7 +49,16 @@ namespace SharpPlanner
             DateTime dateAndTime = new DateTime(CalendarDate.Date.Year, CalendarDate.Date.Month, CalendarDate.Date.Day,
                 CalendarTime.Time.Hours, CalendarTime.Time.Minutes, 0);
             
-            PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (string) PriorityPicker.SelectedItem));
+            Random random = new Random(DateTime.Now.Millisecond);
+            CalendarInlineEvent ev = new CalendarInlineEvent()
+            {
+                StartTime = dateAndTime,
+                EndTime = dateAndTime.AddSeconds(1),
+                Subject = EntryTitle.Text,
+                Color = Globals.calendarColors[(int)Math.Round(random.NextDouble() * Globals.calendarColors.Length)]
+            };
+            PlanBase.GetInstance().Add(new Plan(EntryTitle.Text, EntryDesc.Text, dateAndTime, (string)PriorityPicker.SelectedItem, ev));
+            CalendarEvents.GetInstance().Add(ev);
             tabbedPage.CurrentPage = tabbedPage.Children[0];
         }
 
