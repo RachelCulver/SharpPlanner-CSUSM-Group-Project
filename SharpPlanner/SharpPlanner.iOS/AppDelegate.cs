@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Syncfusion.SfCalendar.XForms.iOS;
 
 namespace SharpPlanner.iOS
 {
@@ -23,6 +24,7 @@ namespace SharpPlanner.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SfCalendarRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
