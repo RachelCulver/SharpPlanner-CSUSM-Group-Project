@@ -60,7 +60,11 @@ namespace SharpPlanner
 
         public async void Cancel(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            bool res = await DisplayAlert("ALERT", "Are you sure you want to cancel? Any changes made will not be saved.", "NO", "YES");
+
+            
+            
+            if (!res) await Navigation.PopAsync();// If they answer YES... meaning they do want to cancel, then go back
         }
 
         public void OnDisappear(object sender, EventArgs e)
