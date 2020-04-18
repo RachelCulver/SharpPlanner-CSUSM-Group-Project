@@ -6,10 +6,19 @@
              Appearing="OnAppear">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="EntryTitle" Text="" Placeholder="Event Name"/>
-            <Entry x:Name="EntryDesc" Text="" Placeholder="Event Description"/>
+            <Label Text="New Event Name:" HorizontalOptions="CenterAndExpand" Padding="1" FontAttributes="Bold" FontSize="Large"/>
+            <Entry x:Name="EntryTitle" Text="" Placeholder="Enter an Event Name..."/>
+
+            <Label Text="Description:" HorizontalOptions="CenterAndExpand" Padding="1" FontAttributes="Bold" FontSize="Large"/>
+            <Entry x:Name="EntryDesc" Text="" Placeholder="Enter an Event Description..."/>
+
+            <Label Text="Date:" HorizontalOptions="CenterAndExpand" Padding="1" FontAttributes="Bold" FontSize="Large"/>
             <DatePicker x:Name="CalendarDate"/>
+
+            <Label Text="Time:" HorizontalOptions="CenterAndExpand" Padding="1" FontAttributes="Bold" FontSize="Large"/>
             <TimePicker x:Name="CalendarTime"/>
+
+            <Label Text="Priority:" HorizontalOptions="CenterAndExpand" Padding="1" FontAttributes="Bold" FontSize="Large"/>
             <Picker x:Name="PriorityPicker"/>
             
             <Button VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="White" BackgroundColor="Green" Text="Create Event" Clicked="CreateEvent"/>

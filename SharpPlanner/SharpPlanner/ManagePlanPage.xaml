@@ -5,19 +5,88 @@
              Appearing="OnAppear"
              Title="See event">
     <ContentPage.Content>
+
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal">
-                <Button BackgroundColor="Red" TextColor="White" HorizontalOptions="End" Text="Edit" Clicked="Edit"/>
+             
+
+            <StackLayout>
+                <Grid Padding="2" RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+            <Label Text="Title" VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   TextColor="Black"/>
+
+            <Label Text="{Binding title}" FontSize="18" TextColor="Black" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                   Grid.Row="0"
+                   Grid.Column="1"/>
+
+            <Label Text="Description" VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   TextColor="Black"/>
+
+            <Label Text="{Binding description}" FontSize="18" TextColor="Black"
+                HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+
+            <Label Text="Date/Time" VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   TextColor="Black"/>
+
+            <Label x:Name="time" Text="{Binding time}" FontSize="18" TextColor="Black"
+                HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+
+            <Label Text="Priority" VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   TextColor="Black"/>
+
+            <Label x:Name="priority" Text="{Binding priority}" FontSize="18" TextColor="Black"
+                HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+
+
+                    </Grid>
+
+                <StackLayout Orientation="Horizontal">
+                <Button BackgroundColor="Red" TextColor="White" HorizontalOptions="CenterAndExpand" Text="Edit" Clicked="Edit" Padding="10"/>
             </StackLayout>
-            <Label Text="{Binding title}" FontSize="24" TextColor="Black" Margin="0,0,0,20" FontAttributes="Bold"
-                VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding description}" FontSize="18" TextColor="#222222"
-                HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="time" Text="{Binding time}" FontSize="18" TextColor="Green"
-                HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="priority" Text="{Binding priority}" FontSize="18" TextColor="#222222"
-                HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+           
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

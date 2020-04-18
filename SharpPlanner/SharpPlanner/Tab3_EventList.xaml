@@ -9,14 +9,27 @@
              IconImageSource="listicon.png"
              >
 
+    
+        <StackLayout>
+<Grid>     
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="8*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
 
+    <Label Text="My Events" FontSize="Large" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
 
     <ListView x:Name="EventList"
-                  IsPullToRefreshEnabled="True"
-                  RowHeight="120"
+                  IsPullToRefreshEnabled="False"
+                  RowHeight="80"
                   Refreshing="EventList_Refreshing"
                   ItemTapped="ManagePlan"
-                  >
+                  Grid.Column="0"
+              Grid.Row="1"
+              HeightRequest="900">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -27,12 +40,12 @@
 
                         <ViewCell.View>
                             <StackLayout>
+
                                 <Grid >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
+                                        
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -42,14 +55,14 @@
 
                                 <!-- I have changed the values so they fit the Plan class -->
                                 <!--PRIORITY -->
-                                <Label Grid.Row="2" Grid.Column="0" Text="{Binding priority}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>                              
+                                <!--<Label Grid.Row="2" Grid.Column="0" Text="{Binding priority}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>  -->                            
                                 <!--DATE AND TIME -->
                                 <!-- <Label Grid.Row="0" Grid.Column="1" Text="{Binding Date}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label> -->
-                                <Label Grid.Row="3" Grid.Column="0" Text="{Binding time}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding time}" TextColor="Black" FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
 
                                 <!--EVENT TITLE AND DESCRIPTION -->
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding title}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding description}"  FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <!--<Label Grid.Row="1" Grid.Column="0" Text="{Binding description}"  FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>-->
 
                                 </Grid>                             
                             </StackLayout>
@@ -61,9 +74,9 @@
 
         </ListView>
 
+    </Grid>   
 
-
-
-
+</StackLayout>
+    
 
 </ContentPage>
