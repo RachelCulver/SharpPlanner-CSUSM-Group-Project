@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Text;
 
@@ -12,6 +13,7 @@ namespace SharpPlanner
     {
         private static PlanBase instance = null;
         public ObservableCollection<Plan> plans;
+        private string separator = "\t";
         
         private PlanBase()
         {
@@ -27,16 +29,21 @@ namespace SharpPlanner
                 string[] _plans = File.ReadAllLines(file);
                 foreach(string plan in _plans)
                 {
-                    string[] split = plan.Split(' ');
+                    Debug.WriteLine(plan);
+                    string[] sepArray = new string[] { separator };
+                    string[] split = plan.Split(sepArray, 5, StringSplitOptions.None);
+
+                    if (split.Length < 4) continue;
+
                     Random random = new Random(DateTime.Now.Millisecond);
                     CalendarInlineEvent ev = new CalendarInlineEvent()
                     {
-                        StartTime = DateTime.Parse(split[2] + " " + split[3]),
-                        EndTime = DateTime.Parse(split[2] + " " + split[3]).AddSeconds(1),
+                        StartTime = DateTime.ParseExact(split[2], "MM/dd/yyyy HH:mm tt", new CultureInfo("en-US")),
+                        EndTime = DateTime.ParseExact(split[2], "MM/dd/yyyy HH:mm tt", new CultureInfo("en-US")).AddSeconds(1),
                         Subject = split[0],
                         Color = Globals.calendarColors[(int)Math.Round(random.NextDouble() * Globals.calendarColors.Length)]
                     };
-                    plans.Add(new Plan(split[0], split[1], DateTime.Parse(split[2] + " " + split[3]), split[4],ev));
+                    plans.Add(new Plan(split[0], split[1], DateTime.ParseExact(split[2], "MM/dd/yyyy HH:mm tt", new CultureInfo("en-US")), split[3],ev));
                     CalendarEvents.GetInstance().Add(ev);
                 }
             }
@@ -48,7 +55,7 @@ namespace SharpPlanner
             string content = "";
             foreach (Plan p in plans)
             {
-                content += p.title + " " + p.description + " " + p.time.ToLongTimeString() + " " + p.priority + "\n";
+                content += p.title + separator + p.description + separator + p.time.ToString("MM/dd/yyyy HH:mm tt") + separator + p.priority + "\n";
             }
             Debug.WriteLine(plans.Count);
             Debug.WriteLine(content);
