@@ -152,11 +152,17 @@
       <Version>18.1.0.43</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Json.Net">
+      <Version>1.0.18</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\SharpPlanner\SharpPlanner.csproj">
-      <Project>{50E03070-A998-4CD7-A1B0-52145915F462}</Project>
+      <Project>{19770C2E-9238-416F-9E56-338B2104F9A7}</Project>
       <Name>SharpPlanner</Name>
     </ProjectReference>
   </ItemGroup>
