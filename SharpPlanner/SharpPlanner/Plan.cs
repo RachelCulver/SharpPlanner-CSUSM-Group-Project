@@ -9,7 +9,7 @@ using System.Text;
 namespace SharpPlanner
 {
     //had to implement the interface INotifyPropertyChanged in order to update data across pages
-    public class Plan : INotifyPropertyChanged
+    public class Plan : INotifyPropertyChanged, IComparable<Plan>
     {
         private string _title = "";
         public string title {
@@ -85,6 +85,16 @@ namespace SharpPlanner
         public void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public int CompareTo(Plan other)
+        {
+            if(PlanBase.GetInstance().sortMode == 0)
+            {
+                return time.CompareTo(other.time);
+            }
+            List<string> priorities = new List<String>(Globals.priorities);
+            return -priorities.IndexOf(priority).CompareTo(priorities.IndexOf(other.priority));
         }
     }
 }

@@ -14,6 +14,7 @@ namespace SharpPlanner
         private static PlanBase instance = null;
         public ObservableCollection<Plan> plans;
         private string separator = "\t";
+        public int sortMode = 0; //0 = date, 1 = priority
         
         private PlanBase()
         {
@@ -47,6 +48,7 @@ namespace SharpPlanner
                     CalendarEvents.GetInstance().Add(ev);
                 }
             }
+            Sort();
         }
 
         public void Save()
@@ -61,6 +63,17 @@ namespace SharpPlanner
             Debug.WriteLine(content);
             File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "plans.txt"), content);
         }
+
+        public void Sort()
+        {
+            List<Plan> list = new List<Plan>(plans);
+            list.Sort();
+            plans.Clear();
+            for(int i = 0; i < list.Count; i++)
+            {
+                plans.Add(list[i]);
+            }
+        }
         
         public static PlanBase GetInstance()
         {
@@ -74,6 +87,7 @@ namespace SharpPlanner
         public void Add(Plan p)
         {
             plans.Add(p);
+            Sort();
             Save();
         }
 

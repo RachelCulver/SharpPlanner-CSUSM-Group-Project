@@ -11,24 +11,28 @@
 
     
         <StackLayout>
-<Grid>     
-    <Grid.RowDefinitions>
-        <RowDefinition Height="*"></RowDefinition>
-        <RowDefinition Height="8*"></RowDefinition>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"></ColumnDefinition>
-    </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-    <Label Text="My Events" FontSize="Large" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+            <Label Text="My Events" FontSize="Large" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
 
+            <Picker Grid.Column="0" Grid.Row="1"  x:Name="SortMode" SelectedIndexChanged="OnPickerChanged">
+            </Picker>
+    
     <ListView x:Name="EventList"
                   IsPullToRefreshEnabled="False"
                   RowHeight="80"
                   Refreshing="EventList_Refreshing"
                   ItemTapped="ManagePlan"
                   Grid.Column="0"
-              Grid.Row="1"
+              Grid.Row="2"
               HeightRequest="900">
             <ListView.ItemTemplate>
                 <DataTemplate>

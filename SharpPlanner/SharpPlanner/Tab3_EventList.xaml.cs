@@ -7,21 +7,26 @@ namespace SharpPlanner
 {
     public partial class Tab3_EventList : ContentPage
     {
-        //private PlanBase Plans = PlanBase.GetInstance();
-        PlanBase Plans = PlanBase.GetInstance();
 
         public Tab3_EventList()
         {
-            
-            Plans.plans = PlanBase.GetInstance().plans;
             InitializeComponent();
             BindingContext = this;
-
-
+            List<string> items = new List<string>();
+            items.Add("Date");
+            items.Add("Priority");
+            SortMode.ItemsSource = items;
+            SortMode.SelectedIndex = 0;
             //Attach item source
 
-            EventList.ItemsSource = Plans.plans;
+            EventList.ItemsSource = PlanBase.GetInstance().plans;
             
+        }
+
+        public void OnPickerChanged(object sender, EventArgs e)
+        {
+            PlanBase.GetInstance().sortMode = SortMode.SelectedIndex;
+            PlanBase.GetInstance().Sort();
         }
 
         public async void ManagePlan(object sender, EventArgs e)
@@ -50,7 +55,7 @@ namespace SharpPlanner
             if (res) return; //IF THEY ANSWER NO, RETURN AND DO NOT REMOVE;
             
 
-            Plans.Remove((Plan)mi.CommandParameter);
+            PlanBase.GetInstance().Remove((Plan)mi.CommandParameter);
         }
 
 
@@ -62,7 +67,7 @@ namespace SharpPlanner
             
 
             //last thing to do in function is set refreshing to false...
-            EventList.IsRefreshing = false;
+            //EventList.IsRefreshing = false;
         }
     }
 }

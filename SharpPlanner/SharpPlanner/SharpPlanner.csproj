@@ -31,4 +31,7 @@
   <ItemGroup>
     <Compile Remove="MyPage.xaml.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Tab3_EventList.xaml.cs~RFa43dbb0.TMP" />
+  </ItemGroup>
 </Project>
