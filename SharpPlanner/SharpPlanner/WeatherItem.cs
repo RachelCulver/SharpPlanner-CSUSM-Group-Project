@@ -18,7 +18,7 @@ namespace SharpPlanner
     public partial class WeatherItem
     {
         [JsonProperty("coord")]
-        public Coord Coord { get; set; }
+        public Coord coord { get; set; }
 
         [JsonProperty("weather")]
         public Weather[] Weather { get; set; }
@@ -33,10 +33,10 @@ namespace SharpPlanner
         public long Visibility { get; set; }
 
         [JsonProperty("wind")]
-        public Wind Wind { get; set; }
+        public Wind wind { get; set; }
 
         [JsonProperty("clouds")]
-        public Clouds Clouds { get; set; }
+        public Clouds clouds { get; set; }
 
         [JsonProperty("dt")]
         public long Dt { get; set; }

@@ -35,7 +35,7 @@
                 />
 
             <Label
-                Text="{Binding Main.Temperature}"
+                Text="{Binding Main.Temp}"
                 />
            
 

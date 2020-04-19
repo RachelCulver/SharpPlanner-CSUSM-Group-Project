@@ -23,8 +23,8 @@ namespace SharpPlanner
             
 
             var uri = new Uri(string.Format(
-                $"https://api.openweathermap.org/data/2.5/weather" +
-                $"? q ={cityEntry}" + $"&appid={API}"));
+                $"https://api.openweathermap.org/data/2.5/weather?q=" + $"San Marcos" + "&units=imperial" 
+                + $"&appid={API}"));
 
             var request = new HttpRequestMessage();
             request.Method = HttpMethod.Get;
@@ -38,6 +38,7 @@ namespace SharpPlanner
                 weatherData = WeatherItem.FromJson(content);
 
                 BindingContext = weatherData;
+                DisplayAlert("Success", "test", "OK");
             }
         }
     }
