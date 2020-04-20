@@ -7,7 +7,7 @@ namespace SharpPlanner
 {
     public partial class Weather : ContentPage
     {
-
+        // Based off of lecture slides
         public static string API = "49e841a01dddd473f095af8cf7dc4ca9";
         public string cityEntry { get; set; }
         public Weather()
@@ -38,7 +38,7 @@ namespace SharpPlanner
                 weatherData = WeatherItem.FromJson(content);
 
                 BindingContext = weatherData;
-                DisplayAlert("Success", "test", "OK");
+                //DisplayAlert("Success", "test", "OK");
             }
         }
     }
