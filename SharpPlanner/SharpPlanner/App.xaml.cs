@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,18 @@ namespace SharpPlanner
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            //check if the app has been run for the first time
+            string file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "firstRun.txt");
+            if (File.Exists(file))
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
+            else
+            {
+                string content = "";
+                File.WriteAllText(file, content);
+                MainPage = new TutorialPage();
+            }
             //MainPage = new ManagePlanPage(new Plan("Test", "bababab", new DateTime(2020,3,16), Priority.LOW));
             //MainPage = new MainPage();
         }
