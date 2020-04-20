@@ -36,7 +36,7 @@ namespace SharpPlanner
         public Wind wind { get; set; }
 
         [JsonProperty("clouds")]
-        public Clouds clouds { get; set; }
+        public Clouds Clouds { get; set; }
 
         [JsonProperty("dt")]
         public long Dt { get; set; }
