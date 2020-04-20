@@ -14,6 +14,7 @@ namespace SharpPlanner
 
             //check if the app has been run for the first time
             string file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "firstRun.txt");
+            //File.Delete(file);//This line will make tutorial show every launch
             if (File.Exists(file))
             {
                 MainPage = new NavigationPage(new MainPage());

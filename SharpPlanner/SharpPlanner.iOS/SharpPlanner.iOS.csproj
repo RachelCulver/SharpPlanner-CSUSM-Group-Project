@@ -200,6 +200,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\calendaricon.imageset\icons8-calendar-30.png" />
+    <ImageAsset Include="Assets.xcassets\addicon.imageset\icons8-add-30.png" />
+    <ImageAsset Include="Assets.xcassets\cloudy.imageset\icons8-partly-cloudy-day-30.png" />
+    <ImageAsset Include="Assets.xcassets\listicon.imageset\icons8-todo-list-30.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
